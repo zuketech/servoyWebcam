@@ -67,27 +67,27 @@ public class camPluginProvider implements IScriptObject{
     
     @Override
     public String getSample(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       		return null;
     }
 
     @Override
     public String getToolTip(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        		return null;
     }
 
     @Override
     public String[] getParameterNames(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       		return null;
     }
 
     @Override
     public boolean isDeprecated(String string) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return false;
     }
 
     @Override
     public Class<?>[] getAllReturnedTypes() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       		return null;
     }
     
 }

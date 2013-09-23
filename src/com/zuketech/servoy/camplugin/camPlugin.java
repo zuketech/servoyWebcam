@@ -23,14 +23,6 @@ public class camPlugin implements IClientPlugin {
 	
 private camPluginProvider provider;
 
-  
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IClientPlugin#getImage()
-	 */
-	/**
-     *
-     * @return
-     */
     @Override
     public Icon getImage() {
 		String iconPath = "images/webcam.png";
@@ -42,25 +34,18 @@ private camPluginProvider provider;
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IClientPlugin#getName()
-	 */
+
     @Override
 	public String getName() {
 		String name = "Webcam";
 	    return name;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IClientPlugin#getPreferencePanels()
-	 */
+
 	public PreferencePanel[] getPreferencePanels() {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IClientPlugin#getScriptObject()
-	 */
     @Override
 	public IScriptObject getScriptObject() {
 		if (provider == null) {
@@ -69,17 +54,12 @@ private camPluginProvider provider;
 		return provider;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IClientPlugin#initialize(com.servoy.j2db.plugins.IClientPluginAccess)
-	 */
+
     @Override
 	public void initialize(IClientPluginAccess arg0) throws PluginException {
 		// ignore
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IPlugin#getProperties()
-	 */
     @Override
 	public Properties getProperties() {
 		Properties props = new Properties();
@@ -87,25 +67,18 @@ private camPluginProvider provider;
 		return props;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IPlugin#load()
-	 */
+
     @Override
 	public void load() throws PluginException {
 		// ignore
 	}
 
-	/* (non-Javadoc)
-	 * @see com.servoy.j2db.plugins.IPlugin#unload()
-	 */
     @Override
 	public void unload() throws PluginException {
 		provider = null;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.beans.PropertyChangeListener#propertyChange(java.beans.PropertyChangeEvent)
-	 */
+
     @Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		// ignore
