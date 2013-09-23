@@ -7,6 +7,7 @@ package com.zuketech.servoy.camplugin;
 
 //Import for Servoy Scripting Interface
 import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamPanel;
 import com.servoy.j2db.scripting.IScriptObject;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
@@ -14,6 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 /**
  * @author mccourt.coridngley@googlemail.com
@@ -52,7 +54,14 @@ public class camPluginProvider implements IScriptObject{
             return null;
         }
     }
-    
+    public Boolean js_showWindow(){
+        JFrame window = new JFrame("Test Webcam Panel");
+        window.add(new WebcamPanel(Webcam.getDefault()));
+        window.pack();
+        window.setVisible(true);
+        window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        return true;
+    }
     public String js_captureImage(String fileName) throws IOException{   
         if(fileName!=null){
             fileName = fileName+"_snap.png";
@@ -64,7 +73,17 @@ public class camPluginProvider implements IScriptObject{
         ImageIO.write(image, "PNG", file);
         return file.getAbsolutePath();
     }
-    
+    public Boolean js_setCustomDimension(int a, int b){
+       
+        Dimension dim;
+        Dimension[] allDims;
+        allDims = getWebcam().getViewSizes();
+        dim = new Dimension(a,b);
+        allDims[0] = dim;
+        getWebcam().setCustomViewSizes(allDims);
+        getWebcam().setViewSize(dim);
+        return true;
+    }
     @Override
     public String getSample(String string) {
        		return null;
