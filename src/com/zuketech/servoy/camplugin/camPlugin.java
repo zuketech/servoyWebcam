@@ -21,8 +21,9 @@ import javax.swing.ImageIcon;
  */
 public class camPlugin implements IClientPlugin {
 	
-	private camPluginProvider provider;
+private camPluginProvider provider;
 
+  
 	/* (non-Javadoc)
 	 * @see com.servoy.j2db.plugins.IClientPlugin#getImage()
 	 */
