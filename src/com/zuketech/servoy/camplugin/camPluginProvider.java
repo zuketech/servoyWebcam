@@ -21,24 +21,27 @@ import javax.imageio.ImageIO;
  *
  */
 public class camPluginProvider implements IScriptObject{
-private static Webcam webcam = Webcam.getDefault();
+//private static Webcam webcam = Webcam.getDefault();
 
+    public Webcam getWebcam(){
+    return Webcam.getDefault();
+    }
     public Boolean js_open(){
         Webcam.setHandleTermSignal(true);
-        return webcam.open();
+        return getWebcam().open();
     }
     
     public Boolean js_close(){
-        return webcam.close();
+        return getWebcam().close();
     } 
     
     public Dimension[] js_getDimensions(){
-        return webcam.getViewSizes();
+        return getWebcam().getViewSizes();
     }
     
     public byte[] js_captureBytes(String fileName) throws IOException{   
         if(fileName!=null){
-            BufferedImage image = webcam.getImage();
+            BufferedImage image = getWebcam().getImage();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write( image, "PNG", baos );
             baos.flush();
@@ -56,7 +59,7 @@ private static Webcam webcam = Webcam.getDefault();
         }else{
             fileName = "tmp_snap.png";
         }
-        BufferedImage image = webcam.getImage();
+        BufferedImage image = getWebcam().getImage();
         File file = new File(fileName+"_snap.png");
         ImageIO.write(image, "PNG", file);
         return file.getAbsolutePath();
