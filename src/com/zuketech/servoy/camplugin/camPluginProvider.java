@@ -59,6 +59,7 @@ public class camPluginProvider implements IScriptObject{
         window.add(new WebcamPanel(Webcam.getDefault()));
         window.pack();
         window.setVisible(true);
+        window.setResizable(true);
         window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         return true;
     }
@@ -74,7 +75,6 @@ public class camPluginProvider implements IScriptObject{
         return file.getAbsolutePath();
     }
     public Boolean js_setCustomDimension(int a, int b){
-       
         Dimension dim;
         Dimension[] allDims;
         allDims = getWebcam().getViewSizes();
