@@ -14,11 +14,14 @@ import javax.imageio.ImageIO;
  * @author mccourt cordingley
  */
 public class RiscmWebCam {
+    
+    private static Webcam webcam = Webcam.getDefault();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Webcam webcam = Webcam.getDefault();
+     
         Webcam.setHandleTermSignal(true);
         String fileName;
         try {
